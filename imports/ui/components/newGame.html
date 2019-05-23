@@ -1,0 +1,12 @@
+<template name="newGame">
+    <div class="new-element-container">
+        <i class="fa fa-close"></i>
+        <h3>Nieuwe Game:</h3>
+        {{#autoForm collection=gameCollection id="insertContactForm" type="insert" class="new-payment-form"}}
+            {{> afQuickField name='maxPoints'}}
+            {{> afQuickField name='players'}}
+            {{> afQuickField name='finished'}}
+            <button type="submit" class="btn btn-primary insert">Insert</button>
+        {{/autoForm}}
+    </div>
+</template>

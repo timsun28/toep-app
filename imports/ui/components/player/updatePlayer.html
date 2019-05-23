@@ -1,0 +1,8 @@
+<template name="updateContact">
+    <h3>Update Speler:</h3>
+    {{#autoForm collection=playerCollection id="insertContactForm" type="update" doc=player class="new-payment-form"}}
+        {{> afQuickField name='name'}}
+        {{> afQuickField name='amountWins' value=amountWins}}
+        <button type="submit" class="btn btn-primary update">Update</button>
+    {{/autoForm}}
+</template>

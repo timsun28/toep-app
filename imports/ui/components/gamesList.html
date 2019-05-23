@@ -1,0 +1,21 @@
+<template name="gamesList">
+    <div class="textbox">
+        {{#if $.Session.get 'newGameValue'}}
+            {{> newGame}}
+        {{else if $.Session.get 'newPlayerValue'}}
+            {{> newPlayer}}
+        {{else}}
+            <button class="new-element" id="new-game">Nieuwe Game</button>
+            <button class="new-element" id="new-player">Nieuwe Speler</button>
+        {{/if}}
+    </div>
+    {{> reactiveTable class="table table-bordered table-hover contact-list" collection=games fields=gameFields rowsPerPage = 50}}
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    {{> reactiveTable class="table table-bordered table-hover contact-list" collection=players fields=playerFields rowsPerPage = 50}}
+</template>

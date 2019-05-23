@@ -1,0 +1,27 @@
+<template name="gameOverview">
+
+    <table id="tablePreview" class="table table-striped table-borderless">
+        <thead>
+        <tr>
+            <th>Naam</th>
+            <th>Status</th>
+            <th>Totaal</th>
+            <th>Plus</th>
+            <th>Min</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#each players}}
+            <tr class="{{#if loser}} table-warning {{/if}}">
+                <td>{{ this.name }}</td>
+                <td>{{ this.status }}</td>
+                <td>{{ this.points }}</td>
+                <td><button id="plusPoint">+</button></td>
+                <td><button id="minusPoint">-</button></td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+
+
+</template>
