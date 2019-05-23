@@ -12,7 +12,7 @@
         </thead>
         <tbody>
         {{#each players}}
-            <tr class="{{#if loser}} table-warning {{/if}}">
+            <tr class="{{#if loser}} table-warning {{/if}} {{#if pelt}} table-pelt {{/if}}">
                 <td>{{ this.name }}</td>
                 <td>{{ this.status }}</td>
                 <td>{{ this.points }}</td>

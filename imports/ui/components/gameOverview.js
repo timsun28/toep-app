@@ -20,6 +20,9 @@ Template.gameOverview.helpers({
     loser: function() {
         console.log(this);
         return this.status === 'Verloren';
+    },
+    pelt: function() {
+        return this.status === 'Pelt!';
     }
 });
 
@@ -35,7 +38,6 @@ Template.gameOverview.events({
         Meteor.call('updateScoreGame', currentGameId, this.name, -1, function(err, result) {
             checkGameFinished()
         });
-
     }
 });
 

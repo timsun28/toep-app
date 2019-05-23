@@ -43,6 +43,7 @@ maroon = #6A2140
 light-red = #CA5765
 pink = #C4376E
 orange = #E8846B
+capblue = #0070AD
 
 z = {
     neg: -7,
@@ -79,7 +80,7 @@ body
 
 header
     color #FFF 
-    background: purp
+    background: capblue
     padding 20px
     fixed top left
     width 100%
@@ -153,12 +154,12 @@ p
 .btn, button
     display inline-block
     cursor pointer
-    background purp
+    background capblue
     color #FFF
     text-decoration none
     text-transform uppercase
     padding 5px 15px
-    border solid 3px purp
+    border solid 3px capblue
     border-radius 2px
     font-weight 800
     shadow-level(1)
@@ -181,7 +182,7 @@ p
             background @background - 20
             border-color @background
     &.btn-text
-        color purp
+        color capblue
         background transparent
         border solid 2px purp
         shadow-level(0)
@@ -545,3 +546,6 @@ section{
 
 .table-warning
     background-color: indianred !important
+
+.table-pelt
+    background-color: yellow !important

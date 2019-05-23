@@ -7,6 +7,7 @@ import './gamesList.html'
 import './newGame.js'
 import './player/newPlayer.js'
 import './player/playerStars.js'
+import './player/playerPlays.js'
 import './gameButton.js'
 import './gameOverview.js'
 import '../partials/playerUpdateButton.js'
@@ -32,7 +33,9 @@ Template.gamesList.helpers({
         return [
             {key: 'createdAt', label: 'Datum', fn: function(value) {return `${value.getHours()}:${('0' + value.getMinutes()).slice(-2)} ${days[value.getDay() - 1]} ${[value.getDate(), value.getMonth() + 1, value.getFullYear()].join('-')}`}},
             {key: 'name', label: 'Naam'},
+            {key: 'amountPlays', label: 'Aantal keer gespeeld', tmpl: Template.playerPlays, cellClass: 'col-md-2'},
             {key: 'amountWins', label: 'Aantal keer gewonnen', tmpl: Template.playerStars, cellClass: 'col-md-2'},
+            {key: 'winRate', label: 'Win rate', tmpl: Template.playerWinRate, cellClass: 'col-md-2'},
             {key: 'contactInfo', label: 'Bewerken', tmpl: Template.playerUpdateButton, cellClass: 'col-md-4'},
         ]
     },
@@ -40,7 +43,8 @@ Template.gamesList.helpers({
         return [
             {key: 'createdAt', label: 'Datum', fn: function(value) {return `${value.getHours()}:${('0' + value.getMinutes()).slice(-2)} ${days[value.getDay() - 1]} ${[value.getDate(), value.getMonth() + 1, value.getFullYear()].join('-')}`}},
             {key: 'maxPoints', label: 'Max Punten'},
-            {key: 'contactInfo', label: 'Bewerken', tmpl: Template.gameButton, cellClass: 'col-md-4'},
+            {key: 'contactInfo', label: 'Spelen', tmpl: Template.gameButton, cellClass: 'col-md-4'},
+            {key: 'remove', label: 'Verwijderen (zonder bevestiging)', tmpl: Template.gameRemove, cellClass: 'col-md-4'},
         ]
     },
 });
