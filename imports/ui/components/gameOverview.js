@@ -38,7 +38,17 @@ Template.gameOverview.events({
         Meteor.call('updateScoreGame', currentGameId, this.name, -1, function(err, result) {
             checkGameFinished()
         });
-    }
+    },
+    'click #plusPussyPoint' (event, template) {
+        const currentGameId = Session.get('currentGameId');
+        Meteor.call('updatePussyPoints', currentGameId, this.name, 1, function(err, result) {
+        });
+    },
+    'click #minusPussyPoint' (event, template) {
+        const currentGameId = Session.get('currentGameId');
+        Meteor.call('updatePussyPoints', currentGameId, this.name, -1, function(err, result) {
+        });
+    },
 });
 
 function checkGameFinished() {

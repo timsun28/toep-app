@@ -1,18 +1,28 @@
 import './playerPlays.html'
 import { Games } from "../../../api/game/games";
+import {Session} from "meteor/session";
 
 Template.playerPlays.helpers({
     amountPlays: function() {
-        return Games.find({'players.name': this.name}).count();
+        return Games.find({'players.name': this.name, finished: true}).count();
     }
+});
+
+Template.playerWinRate.onCreated(() => {
+    const playerName = Template.currentData().name;
+    Meteor.call('returnAmountWinsPlayer', playerName, function(err, result) {
+        if (result === 0) {
+            Session.set(playerName + 'rate', '0 %');
+            return;
+        }
+        const winrate = result / Games.find({'finished': true, 'players.name': playerName}).count();
+        Session.set(playerName + 'rate', `${Math.round(winrate*100)} %`);
+    });
 });
 
 Template.playerWinRate.helpers({
     winRate: function() {
-        if (this.amountWins === 0) {
-            return '0 %'
-        }
-        const winrate = this.amountWins / Games.find({'players.name': this.name}).count();
-        return `${Math.round(winrate*100)} %`;
+        const playerName = this.name;
+        return Session.get(playerName + 'rate') || '0 %'
     }
 });

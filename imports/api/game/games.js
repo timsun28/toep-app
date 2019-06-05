@@ -70,6 +70,14 @@ const gamesSchema = new SimpleSchema({
             value: 0,
         }
     },
+    'players.$.pussyPoints': {
+        type: Number,
+        label: 'Punten',
+        autoform: {
+            type: "hidden",
+            value: 0,
+        }
+    },
     'players.$.status': {
         type: String,
         label: 'Status',

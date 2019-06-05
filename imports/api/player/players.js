@@ -34,6 +34,13 @@ const playersSchema = new SimpleSchema({
             value: 0
         }
     },
+    amountPussyPoints: {
+        type: Number,
+        label: 'Aantal Pussy Punten',
+        autoform: {
+            value: 0
+        }
+    },
 });
 
 playersSchema.debug = true;

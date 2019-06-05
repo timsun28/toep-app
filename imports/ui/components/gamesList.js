@@ -12,15 +12,11 @@ import './gameButton.js'
 import './gameOverview.js'
 import '../partials/playerUpdateButton.js'
 
-const days = ['Maandag', 'Dinsdag', 'Woensdag', 'Donderdag', 'Vrijdag', 'Zaterdag', 'Zondag'];
-
-
 Template.gamesList.onCreated(function(){
     this.subscribe('games');
     this.subscribe('players');
     Session.set('newPlayerValue', false);
 });
-
 
 Template.gamesList.helpers({
     games: () => {
@@ -31,18 +27,20 @@ Template.gamesList.helpers({
     },
     playerFields: () => {
         return [
-            {key: 'createdAt', label: 'Datum', fn: function(value) {return `${value.getHours()}:${('0' + value.getMinutes()).slice(-2)} ${days[value.getDay() - 1]} ${[value.getDate(), value.getMonth() + 1, value.getFullYear()].join('-')}`}},
+            {key: 'createdAt', label: 'Datum'},
             {key: 'name', label: 'Naam'},
-            {key: 'amountPlays', label: 'Aantal keer gespeeld', tmpl: Template.playerPlays, cellClass: 'col-md-2'},
-            {key: 'amountWins', label: 'Aantal keer gewonnen', tmpl: Template.playerStars, cellClass: 'col-md-2'},
-            {key: 'winRate', label: 'Win rate', tmpl: Template.playerWinRate, cellClass: 'col-md-2'},
-            {key: 'contactInfo', label: 'Bewerken', tmpl: Template.playerUpdateButton, cellClass: 'col-md-4'},
+            {key: 'amountPlays', label: 'Aantal spellen afgerond', tmpl: Template.playerPlays, cellClass: 'col-md-1'},
+            {key: 'amountWins', label: 'Aantal keer gewonnen', tmpl: Template.playerStars, cellClass: 'col-md-1'},
+            {key: 'amountPussyPoints', label: 'Aantal Pussy Punten', cellClass: 'col-md-1'},
+            {key: 'winRate', label: 'Win rate', tmpl: Template.playerWinRate, cellClass: 'col-md-1'},
+            {key: 'contactInfo', label: 'Bewerken', tmpl: Template.playerUpdateButton, cellClass: 'col-md-2'},
         ]
     },
     gameFields: () => {
         return [
-            {key: 'createdAt', label: 'Datum', fn: function(value) {return `${value.getHours()}:${('0' + value.getMinutes()).slice(-2)} ${days[value.getDay() - 1]} ${[value.getDate(), value.getMonth() + 1, value.getFullYear()].join('-')}`}},
+            {key: 'createdAt', label: 'Datum'},
             {key: 'maxPoints', label: 'Max Punten'},
+            {key: 'finished', label: 'Afgerond'},
             {key: 'contactInfo', label: 'Spelen', tmpl: Template.gameButton, cellClass: 'col-md-4'},
             {key: 'remove', label: 'Verwijderen (zonder bevestiging)', tmpl: Template.gameRemove, cellClass: 'col-md-4'},
         ]
