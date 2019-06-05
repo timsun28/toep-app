@@ -13,10 +13,7 @@ Meteor.methods({
         Games.remove(id);
     },
     'returnAmountWinsPlayer': function(playerName) {
-        const res = Games.find({'finished': true, 'players': {'$elemMatch': {'name': playerName, 'status': {'$ne': 'Verloren'}}}}).count();
-        console.log(playerName);
-        console.log(res);
-        return res;
+        return Games.find({'finished': true, 'players': {'$elemMatch': {'name': playerName, 'status': {'$ne': 'Verloren'}}}}).count();
     }
 });
 

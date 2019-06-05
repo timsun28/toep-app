@@ -20,10 +20,11 @@ Template.updateContact.helpers({
     },
     amountWins: function() {
         return Template.currentData().data.amountWins;
-
+    },
+    amountPussyPoints: function() {
+        return Template.currentData().data.amountPussyPoints;
     },
     player : function() {
-        console.log(Template.currentData().data);
         return Template.currentData().data;
     },
     options: function() {

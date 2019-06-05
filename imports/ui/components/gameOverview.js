@@ -18,7 +18,6 @@ Template.gameOverview.helpers({
         return currentGame.players;
     },
     loser: function() {
-        console.log(this);
         return this.status === 'Verloren';
     },
     pelt: function() {
@@ -70,13 +69,9 @@ function checkGameFinished() {
             player.status = 'Spelend'
         }
     });
-    console.log(currentGame.players);
-    console.log(totalPlayersPlaying);
     if (totalPlayersPlaying.length === 1) {
         const winner = totalPlayersPlaying[0];
         Meteor.call('updatePlayerWin', winner, function(err, result) {
-            console.log(err);
-            console.log(result);
             Games.update({_id: currentGameId}, {$set: {'finished': true}})
         });
     }

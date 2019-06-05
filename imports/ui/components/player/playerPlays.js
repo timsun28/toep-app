@@ -13,10 +13,10 @@ Template.playerWinRate.onCreated(() => {
     Meteor.call('returnAmountWinsPlayer', playerName, function(err, result) {
         if (result === 0) {
             Session.set(playerName + 'rate', '0 %');
-            return;
+        } else {
+            const winrate = result / Games.find({'finished': true, 'players.name': playerName}).count();
+            Session.set(playerName + 'rate', `${Math.round(winrate*100)} %`);
         }
-        const winrate = result / Games.find({'finished': true, 'players.name': playerName}).count();
-        Session.set(playerName + 'rate', `${Math.round(winrate*100)} %`);
     });
 });
 
