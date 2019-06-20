@@ -23,9 +23,8 @@ erasaur:meteor-lodash
 stolinski:stylus-multi
 fortawesome:fontawesome
 spiderable
-fastclick
 raix:handlebar-helpers
-aldeed:autoform@6.0.0
+aldeed:autoform
 matb33:bootstrap-glyphicons
 zimme:active-route
 datariot:ganalytics
@@ -48,7 +47,7 @@ cfs:filesystem
 cfs:ejson-file
 cfs:ui
 aldeed:collection2-core@2.0.0
-aldeed:autoform-select2@3.0.1
+aldeed:autoform-select2
 thelohoadmin:bootstrap@3.3.7
 mizzao:bootboxjs
 harrison:papa-parse

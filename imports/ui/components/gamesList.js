@@ -20,13 +20,12 @@ Template.gamesList.onCreated(function(){
 
 Template.gamesList.helpers({
     games: () => {
-        return Games.find();
+        return Games.find({'finished': false});
     },
     gameFields: () => {
         return [
             {key: 'createdAt', label: 'Datum', sortOrder: 0, sortDirection: 'descending'},
             {key: 'maxPoints', label: 'Max Punten'},
-            {key: 'finished', label: 'Afgerond'},
             {key: 'contactInfo', label: 'Spelen', tmpl: Template.gameButton, cellClass: 'col-md-4'},
             {key: 'remove', label: 'Verwijderen (zonder bevestiging)', tmpl: Template.gameRemove, cellClass: 'col-md-4'},
         ]
@@ -36,13 +35,11 @@ Template.gamesList.helpers({
     },
     playerFields: () => {
         return [
-            {key: 'createdAt', label: 'Datum', sortOrder: 0},
             {key: 'name', label: 'Naam'},
             {key: 'amountPlays', label: 'Aantal spellen afgerond', tmpl: Template.playerPlays, cellClass: 'col-md-1'},
             {key: 'amountWins', label: 'Aantal keer gewonnen', tmpl: Template.playerStars, cellClass: 'col-md-1'},
-            {key: 'amountPussyPoints', label: 'Aantal Pussy Punten', cellClass: 'col-md-1'},
             {key: 'winRate', label: 'Win rate', tmpl: Template.playerWinRate, cellClass: 'col-md-1'},
-            {key: 'contactInfo', label: 'Bewerken', tmpl: Template.playerUpdateButton, cellClass: 'col-md-2'},
+            {key: 'contactInfo', label: 'Bewerken', tmpl: Template.playerUpdateButton, cellClass: 'col-md-1'},
         ]
     },
 });

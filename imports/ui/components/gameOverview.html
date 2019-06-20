@@ -1,8 +1,6 @@
 <template name="gameOverview">
-    Pussy punten worden los bijgehouden van de normale punten. Het aantal pussy punten wordt bijgehouden bij het spelers overzicht. Er moet zelf bepaald worden of er bij 3 punten een extra punt wordt toegewezen bij een speler.
-    <br>
-    <br>
-    <table id="tablePreview" class="table table-striped table-borderless">
+<!--    Pussy punten worden los bijgehouden van de normale punten. Het aantal pussy punten wordt bijgehouden bij het spelers overzicht. Er moet zelf bepaald worden of er bij 3 punten een extra punt wordt toegewezen bij een speler.-->
+    <table id="tablePreview" class="table table-striped table-borderless table-responsive">
         <thead>
         <tr>
             <th>Naam</th>
@@ -10,7 +8,7 @@
             <th>Punten</th>
             <th>Plus</th>
             <th>Min</th>
-            <th>Pussy Punten</th>
+<!--            <th>Pussy Punten</th>-->
         </tr>
         </thead>
         <tbody>
@@ -21,13 +19,50 @@
                 <td>{{ this.points }}</td>
                 <td><button id="plusPoint">+</button></td>
                 <td><button id="minusPoint">-</button></td>
-                <td>{{ this.pussyPoints }}</td>
-                <td><button id="plusPussyPoint">+</button></td>
-                <td><button id="minusPussyPoint">-</button></td>
+<!--                <td>{{ this.pussyPoints }}</td>-->
+<!--                <td><button id="plusPussyPoint">+</button></td>-->
+<!--                <td><button id="minusPussyPoint">-</button></td>-->
             </tr>
         {{/each}}
         </tbody>
     </table>
 
 
+</template>
+
+<template name="gameOverview_new">
+    <div class="table table-striped table-borderless">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-sm-4">
+                    Naam
+                </div>
+                <div class="col-sm-2">
+                    Punten
+                </div>
+                <div class="col-sm-3">
+                    Plus
+                </div>
+                <div class="col-sm-3">
+                    Min
+                </div>
+            </div>
+            {{#each players}}
+                <div class="row">
+                    <div class="col-sm-4">
+                        {{ this.name }}
+                    </div>
+                    <div class="col-sm-2">
+                        {{ this.points }}
+                    </div>
+                    <div class="col-sm-3">
+                        <button id="plusPoint">+</button>
+                    </div>
+                    <div class="col-sm-3">
+                        <button id="minusPoint">-</button>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
 </template>

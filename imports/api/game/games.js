@@ -59,7 +59,7 @@ const gamesSchema = new SimpleSchema({
                         value: player.name
                     }
                 })
-            }
+            },
         }
     },
     'players.$.points': {
