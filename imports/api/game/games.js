@@ -51,6 +51,7 @@ const gamesSchema = new SimpleSchema({
         type: String,
         label: 'name',
         autoform: {
+            class: 'select-player',
             type: 'select',
             options: function(){
                 return Players.find().map(function (player) {

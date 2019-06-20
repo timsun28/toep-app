@@ -20,7 +20,7 @@ Template.gamesList.onCreated(function(){
 
 Template.gamesList.helpers({
     games: () => {
-        return Games.find({'finished': false});
+        return Games.find();
     },
     gameFields: () => {
         return [
