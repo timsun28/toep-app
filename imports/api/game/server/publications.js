@@ -6,4 +6,4 @@ Meteor.publish('games', function(){
 
 Meteor.publish('finishedGames', function() {
     return Games.find({'finished': false});
-})
+});

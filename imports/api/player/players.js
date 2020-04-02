@@ -43,5 +43,4 @@ const playersSchema = new SimpleSchema({
     },
 });
 
-playersSchema.debug = true;
 Players.attachSchema(playersSchema, {tracker: Tracker});

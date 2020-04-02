@@ -16,7 +16,6 @@ Template.playerStars.onCreated(() => {
 Template.playerStars.helpers({
     amountOfStars: function() {
         const playerName = this.name;
-        console.log(Session.get(playerName));
         return Session.get(playerName) || [];
     }
 });

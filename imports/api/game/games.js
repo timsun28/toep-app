@@ -89,5 +89,4 @@ const gamesSchema = new SimpleSchema({
     }
 });
 
-gamesSchema.debug = true;
 Games.attachSchema(gamesSchema, {tracker: Tracker});
